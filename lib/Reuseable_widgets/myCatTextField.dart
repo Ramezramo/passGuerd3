@@ -20,6 +20,7 @@ class MyTextField extends StatelessWidget {
   final double? lineWidth;
 
 
+
   MyTextField({Key? key,this.lineWidth = 1.0,this.backGroundColor = null,this.borderradios = null,this.hintTextColor = Colors.black54,this.enabled = true,required this.addDecaration,this.textEditingController = null, this.hint_text = null , this.text_input_type = TextInputType.emailAddress, required this.is_password, this.decoration_degree = 12,this.borderSide_color = Colors.red,this.borderSide_color_infocas = Colors.green}) : super(key: key);
 
   @override

@@ -96,10 +96,10 @@ class MakeChangesDBM{
     // IN THIS WILL AUTO SIGN IN FOR GETTING USER ID IN THE getCurrentUser()
     try {
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: "ramezmalak@gmail.com", password: "pass.toString()");
+          email: "ramezmalakdev@gmail.com", password: "pass.toString()");
     } catch (e) {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: "ramezmalak@gmail.com", password: "pass.toString()");
+          email: "ramezmalakdev@gmail.com", password: "pass.toString()");
     }
   }
 
