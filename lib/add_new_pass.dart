@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'ComplexXoperations/DataPageCrypto.dart';
 import 'Reuseable_widgets/myCatButton.dart';
 import 'Reuseable_widgets/myCatTextField.dart';
 import 'DATABASECONTROLERS/MakeChangesInDataBase.dart';
-
 
 TextEditingController _mailController = TextEditingController();
 TextEditingController _passController = TextEditingController();
@@ -34,6 +34,7 @@ class _AddNewPassState extends State<AddNewPass> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     _ChangesDBM.getCurrentUser();
@@ -80,14 +81,33 @@ class _AddNewPassState extends State<AddNewPass> {
                         textEditingController: _mailController,
                       )),
                   Container(
-                      margin:
-                          const EdgeInsets.only(top: 12, left: 20, right: 20),
-                      child: MyTextField(
-                        addDecaration: false,
-                        hint_text: "account password",
-                        is_password: false,
-                        textEditingController: _passController,
-                      )),
+                    margin: const EdgeInsets.only(top: 12, left: 20, right: 20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: MyTextField(
+                            addDecaration: false,
+                            hint_text: "account password",
+                            is_password: false,
+                            textEditingController: _passController,
+                          ),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            // Add your functionality here
+                            String foundpass = generatePassword("sdfsdfasda",_mailController.text, "1");
+                            setState(() {
+                              _passController.text = foundpass;
+                              _confirmpassController.text = foundpass;
+                            });
+
+                          },
+                          icon: Icon(Icons.create),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   Container(
                       margin:
                           const EdgeInsets.only(top: 12, left: 20, right: 20),
@@ -101,7 +121,6 @@ class _AddNewPassState extends State<AddNewPass> {
                     onPressed: () {
                       if (_mailController.text.length > 1 &&
                           _passController.text.length > 1) {
-
                         if (_confirmpassController.text ==
                             _passController.text) {
                           if (widget.mainPageOrStackTF == true) {
@@ -120,7 +139,7 @@ class _AddNewPassState extends State<AddNewPass> {
                           _mailController.clear();
                           _confirmpassController.clear();
                           Navigator.of(context).pop();
-                        }else{
+                        } else {
                           _showPasswordMismatchSnackBar();
                         }
                       }
