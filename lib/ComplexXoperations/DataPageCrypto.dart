@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-void main() {
-  print(generatePassword("SECOND","01156940929", "1"));
-}
+// void main() {
+//   print(generatePassword("SECOND","01156940929", "1"));
+// }
 
 Map<String, String> char_mapping_1 = {};
 
