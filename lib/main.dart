@@ -4,6 +4,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:password_saver/data_page_viewer.dart';
+import 'AppReusableWidgets/myDrawer.dart';
 import 'Constants.dart';
 import 'add_new_pass.dart';
 import 'firebase_options.dart';
@@ -79,6 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
             showModalBottomSheet(
                 context: context, builder: (context) => AddNewPass(mainPageOrStackTF: true,));
           },
+        ),
+        drawer: Drawer(
+          child: appDrawer(context)
         ),
         appBar: AppBar(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,

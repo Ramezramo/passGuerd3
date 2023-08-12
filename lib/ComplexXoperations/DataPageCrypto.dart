@@ -1,8 +1,6 @@
 import 'dart:convert';
 
 void main() {
-  // print("ok");
-  // there is a problem if the key len is less than the len of the email extracted
   print(generatePassword("SECOND","01156940929", "1"));
 }
 
@@ -158,25 +156,19 @@ void changCharsEncrypter(String char) {
   // char = "4";
   int keyslen = keys.length;
   int placeOfChar = keys.indexOf(char.toLowerCase());
-
-  // print(keyslen);
-  // print(valuesRandomed.length);
-  // print('this is the place of char $placeOfChar');
-  // print('this is keys len $keyslen');
-  // for random changes the charpath
   for (int i = placeOfChar; i < keyslen - 1; i++) {
-    // print(values[i]);
+
     valuesRandomed.add(values[i]);
   }
   for (int i = 0; i < placeOfChar; i++) {
-    // print(values[i]);
+
     valuesRandomed.add(values[i]);
   }
 
 
-  // print(valuesRandomed.length);
+
   keys.remove('.');
-  // print(keys.length);
+
   int counter = 0;
   for (var element in keys) {
 
@@ -250,13 +242,13 @@ List emergeEncryptedKeyWithEmail(List EncryptedKey, String Email) {
     passEmarged.add(EncryptedKey[counter]);
     counter++;
     if (counter > 9) {
-      // will make the password never exceed the len of 9
+
       break;
     }
   }
   passEmarged.add("_$charsToConsider#\$"); //this will add the len for it
 
-  // print(passEmarged);
+
   return passEmarged;
 }
 

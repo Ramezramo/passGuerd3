@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'AppReusableWidgets/WidgestsCustomeForApp.dart';
+import 'AppReusableWidgets/myDrawer.dart';
 import 'Constants.dart';
 import 'Reuseable_widgets/myCatButton.dart';
 import 'add_new_pass.dart';
@@ -25,7 +26,11 @@ class _DataPageState extends State<DataPage> {
     }
     // List keysInDataFlow = widget.dataFollow.keys.toList();
     return Scaffold(
+      // drawer: Drawer(
+      //     child: appDrawer()
+      // ),
       appBar: AppBar(
+
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.pagename),
       ),
