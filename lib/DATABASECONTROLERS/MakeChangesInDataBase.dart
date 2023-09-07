@@ -14,6 +14,7 @@ class MakeChangesDBM{
     // THIS WILL RETURN USER ID IN SIGNED IN USERS
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user = auth.currentUser;
+    print(user);
     if (user != null) {
       // The user is signed in.
       // print("The user is signed in." * 30);

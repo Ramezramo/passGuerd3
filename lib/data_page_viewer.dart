@@ -5,6 +5,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'AppReusableWidgets/WidgestsCustomeForApp.dart';
 import 'AppReusableWidgets/myDrawer.dart';
 import 'Constants.dart';
+import 'Reuseable_widgets/animated_slider_for_itemContent.dart';
 import 'Reuseable_widgets/myCatButton.dart';
 import 'add_new_pass.dart';
 import 'package:flutter/services.dart';
@@ -71,107 +72,115 @@ class _DataPageState extends State<DataPage> {
           return Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  itemCount: rondomKeysInPageMap.length,
-                  itemBuilder: (context, index) {
-                    String itemRandomKey = rondomKeysInPageMap[index];
-                    String emailOrPhone =
-                        insideWebsitesmap[itemRandomKey]['email_phone'];
-                    String pass = insideWebsitesmap[itemRandomKey]['pass'];
 
-                    return Column(
-                      children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(13.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: K_card_bg,
-                                borderRadius: const BorderRadius.all(
-                                    Radius.circular(20))),
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Card(
-                                        color: K_card_listTile_color,
-                                        child: ListTile(
-                                          leading: const Icon(Icons.email),
-                                          title: SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(emailOrPhone),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    IconButton(
-                                        onPressed: () async {
-                                          await Clipboard.setData(ClipboardData(
-                                              text: emailOrPhone));
-                                        },
-                                        icon: const Icon(Icons.copy))
-                                  ],
-                                ),
-                                Row(
-                                  children: [
-                                    Expanded(
-                                      child: Card(
-                                        color: K_card_listTile_color,
-                                        child: ListTile(
-                                          leading: Icon(MdiIcons.lock),
-                                          title: SingleChildScrollView(
-                                            scrollDirection: Axis.horizontal,
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Text(pass),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    IconButton(
-                                        onPressed: () async {
-                                          await Clipboard.setData(
-                                              ClipboardData(text: pass));
-                                        },
-                                        icon: const Icon(Icons.copy))
-                                  ],
-                                ),
-                                IconButton(
-                                    onPressed: () {
-                                      showAlertDialog(
-                                          context,
-                                          widget.userID,
-                                          "besoes",
-                                          widget.pagename,
-                                          itemRandomKey);
-                                    },
-                                    icon: Icon(MdiIcons.trashCan))
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
+                child:MyCustomWidgetDataViewer(userId:widget.userID ,PageName: widget.pagename,rondomKeysInPageMap: rondomKeysInPageMap,insideWebsitesmap:insideWebsitesmap, ),
+                //                           widget.userID,
+                //                           "besoes",
+                //                           widget.pagename,
+                // child: ListView.builder(
+                //   itemCount: rondomKeysInPageMap.length,
+                //   itemBuilder: (context, index) {
+                //     String itemRandomKey = rondomKeysInPageMap[index];
+                //     String emailOrPhone =
+                //         insideWebsitesmap[itemRandomKey]['email_phone'];
+                //     String pass = insideWebsitesmap[itemRandomKey]['pass'];
+                //
+                //     return Column(
+                //       children: [
+                //         const SizedBox(
+                //           height: 20,
+                //         ),
+                //         Padding(
+                //           padding: const EdgeInsets.all(13.0),
+                //           child: Container(
+                //             decoration: BoxDecoration(
+                //                 color: K_card_bg,
+                //                 borderRadius: const BorderRadius.all(
+                //                     Radius.circular(20))),
+                //             child: Column(
+                //               children: [
+                //                 const SizedBox(
+                //                   height: 30,
+                //                 ),
+                //                 Row(
+                //                   children: [
+                //                     Expanded(
+                //                       child: Card(
+                //                         color: K_card_listTile_color,
+                //                         child: ListTile(
+                //                           leading: const Icon(Icons.email),
+                //                           title: SingleChildScrollView(
+                //                             scrollDirection: Axis.horizontal,
+                //                             child: Row(
+                //                               mainAxisAlignment:
+                //                                   MainAxisAlignment
+                //                                       .spaceBetween,
+                //                               children: [
+                //                                 Text(emailOrPhone),
+                //                               ],
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       ),
+                //                     ),
+                //                     IconButton(
+                //                         onPressed: () async {
+                //                           await Clipboard.setData(ClipboardData(
+                //                               text: emailOrPhone));
+                //                         },
+                //                         icon: const Icon(Icons.copy))
+                //                   ],
+                //                 ),
+                //                 Row(
+                //                   children: [
+                //                     Expanded(
+                //                       child: Card(
+                //                         color: K_card_listTile_color,
+                //                         child: ListTile(
+                //                           leading: Icon(MdiIcons.lock),
+                //                           title: SingleChildScrollView(
+                //                             scrollDirection: Axis.horizontal,
+                //                             child: Row(
+                //                               mainAxisAlignment:
+                //                                   MainAxisAlignment
+                //                                       .spaceBetween,
+                //                               children: [
+                //                                 Text(pass),
+                //                               ],
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       ),
+                //                     ),
+                //                     IconButton(
+                //                         onPressed: () async {
+                //                           await Clipboard.setData(
+                //                               ClipboardData(text: pass));
+                //                         },
+                //                         icon: const Icon(Icons.copy))
+                //                   ],
+                //                 ),
+                //                 IconButton(
+                //                     onPressed: () {
+                //                       showAlertDialog(
+                //                           context,
+                //                           widget.userID,
+                //                           "besoes",
+                //                           widget.pagename,
+                //                           itemRandomKey);
+                //                     },
+                //                     icon: Icon(MdiIcons.trashCan))
+                //               ],
+                //             ),
+                //           ),
+                //         ),
+                //       ],
+                //     );
+                //   },
+                // ),
+
+
+
               ),
               const SizedBox(
                   height:
