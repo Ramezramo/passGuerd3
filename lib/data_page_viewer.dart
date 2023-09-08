@@ -1,14 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'AppReusableWidgets/WidgestsCustomeForApp.dart';
-import 'AppReusableWidgets/myDrawer.dart';
 import 'Constants.dart';
 import 'Reuseable_widgets/animated_slider_for_itemContent.dart';
 import 'Reuseable_widgets/myCatButton.dart';
 import 'add_new_pass.dart';
-import 'package:flutter/services.dart';
+
 
 class DataPage extends StatefulWidget {
   // final Map dataFollow;
@@ -25,11 +22,9 @@ class _DataPageState extends State<DataPage> {
     if (kDebugMode) {
       print(widget.userID);
     }
-    // List keysInDataFlow = widget.dataFollow.keys.toList();
+
     return Scaffold(
-      // drawer: Drawer(
-      //     child: appDrawer()
-      // ),
+
       appBar: AppBar(
 
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,

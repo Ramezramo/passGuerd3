@@ -321,16 +321,5 @@ class MakeChangesDBM{
       }
     }
   }
-  // Future <void> deleteKeyinMap(collectionName,mapName,key)async{
-  //   getCurrentUser();
-  //   print('the key from the function $key');
-  //   DocumentReference documentReference =
-  //   FirebaseFirestore.instance.collection(collectionName).doc(_userId);
-  //   await documentReference.update({
-  //     'websites.$mapName.$key': FieldValue.delete(),
-  //   });
-  // }
-
-
 
 }

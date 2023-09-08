@@ -17,12 +17,6 @@ Column appDrawer(context) {
               currentAccountPicture: CircleAvatar(
                 backgroundImage: null,
               ),
-              // decoration: BoxDecoration(
-              //   image: DecorationImage(
-              //
-              //       image: Icon(Icons.home),
-              //       fit: BoxFit.cover),
-              // ),
               accountName: Text("ramez"),
               accountEmail: Text("ramezmalak@gmail.com")),
 

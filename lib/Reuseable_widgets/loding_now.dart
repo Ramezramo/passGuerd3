@@ -38,10 +38,6 @@ class loading_mine extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Text("loading",
-          //     style: TextStyle(
-          //       fontSize: 25,
-          //     )),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
